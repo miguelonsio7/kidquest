@@ -18,7 +18,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 const FIREBASE_CONFIG = {
   apiKey:            "AIzaSyBIsFxke5iu2xCSkwUw47XmfZ-B4upCr2Y",
-  databaseURL:       " https://kidquest---chore-game-default-rtdb.firebaseio.com"
+  databaseURL:       "https://kidquest---chore-game-default-rtdb.firebaseio.com",
   projectId:         "kidquest---chore-game",
 };
 
