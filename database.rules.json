@@ -1,0 +1,46 @@
+{
+  "rules": {
+    "families": {
+      "$familyCode": {
+        // Anyone can READ a family if they know the family code.
+        // This is needed so the Join screen can look up the family
+        // and verify the PIN before granting access.
+        ".read": true,
+
+        // Only allow WRITE if the data being written is valid:
+        // - The familyCode field must match the path key
+        // - The record must have adminPIN and nannyPIN fields
+        // - PINs must be 4-digit strings
+        ".write": "
+          newData.hasChildren(['familyCode', 'adminPIN', 'nannyPIN']) &&
+          newData.child('familyCode').val() === $familyCode &&
+          newData.child('adminPIN').isString() &&
+          newData.child('adminPIN').val().length === 4 &&
+          newData.child('nannyPIN').isString() &&
+          newData.child('nannyPIN').val().length === 4
+        ",
+
+        // Kids, tasks, completions can be read/written freely
+        // once you know the family code (PIN verification happens in the app)
+        "kids": {
+          ".read": true,
+          ".write": true
+        },
+        "tasks": {
+          ".read": true,
+          ".write": true
+        },
+        "completions": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    },
+
+    // Deny all access to anything outside /families/
+    "$other": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}
