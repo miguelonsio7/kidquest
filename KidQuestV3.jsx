@@ -23,7 +23,7 @@ const FIREBASE_CONFIG = {
 };
 
 // Set to true once you've filled in real Firebase config above
-const FIREBASE_ENABLED = FIREBASE_CONFIG.apiKey !== "AIzaSyBIsFxke5iu2xCSkwUw47XmfZ-B4upCr2Y";
+const FIREBASE_ENABLED = FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY";
 
 // ─── STATIC DATA ─────────────────────────────────────────────────────────────
 const TASK_LIBRARY = [
